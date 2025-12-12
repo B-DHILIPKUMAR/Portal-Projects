@@ -1,0 +1,103 @@
+.pay-wrapper {
+  padding: 40px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3b0d2, #c5c7f7);
+}
+
+/* Title */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header-section h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #002b61;
+}
+
+/* PDF Button */
+.pdf-btn {
+  background: #002b61;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.pdf-btn:hover {
+  opacity: 0.85;
+}
+
+/* Summary Card */
+.summary-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  padding: 30px 40px;
+  border-radius: 22px;
+  max-width: 850px;
+  margin: auto;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Rows */
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 18px;
+}
+
+.label {
+  font-weight: 700;
+  color: #002b61;
+}
+
+.value-box {
+  padding: 8px 16px;
+  background: #e6f5ff;
+  border-radius: 10px;
+  min-width: 200px;
+  text-align: right;
+  font-weight: 600;
+  color: #003a63;
+}
+
+/* Loading & Error */
+.loading-box,
+.no-data {
+  text-align: center;
+  font-size: 20px;
+  color: #003a63;
+  margin-top: 100px;
+}
+
+.error-box {
+  background: #ffe5e5;
+  border-left: 6px solid #ff4d4d;
+  padding: 16px;
+  max-width: 600px;
+  margin: 40px auto;
+}
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #003b71;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+.back-btn:hover {
+  background: #002a52;
+}

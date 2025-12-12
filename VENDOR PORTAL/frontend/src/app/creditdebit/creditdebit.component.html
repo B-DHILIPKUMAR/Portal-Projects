@@ -1,0 +1,93 @@
+<div class="dashboard-wrapper">
+
+  <!-- SIDEBAR
+  <div class="sidebar">
+    <h3 class="logo">Vendor Portal</h3>
+
+    <ul class="menu">
+      <li class="menu-item" (click)="goToDashboard()">📊 Dashboard</li>
+      <li class="menu-item active">🧾 Credit / Debit Memo</li>
+    </ul>
+
+    <div class="logout-section">
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div> -->
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+<div class="top-header header-flex">
+
+  <button class="back-btn" (click)="goBack()">← Back</button>
+
+  <h2>Credit / Debit Memo</h2>
+
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Search Memo / Year / Currency / Doc Type"
+      [(ngModel)]="searchText"
+      (input)="applyFilter()"
+    />
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+</div>
+
+
+
+    <!-- LOADER -->
+    <div class="loader" *ngIf="isLoading">
+      Loading Credit / Debit data...
+    </div>
+
+    <!-- ERROR -->
+    <div class="error-box" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-wrapper" *ngIf="!isLoading && creditDebitList.length">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Memo No</th>
+            <th>Fiscal Year</th>
+            <th>Posting Date</th>
+            <!-- <th>Header Text</th> -->
+            <th>Amount</th>
+            <!-- <th>Currency</th> -->
+            <th>Doc Type</th>
+            <th>Created By</th>
+            <th>Memo Type</th>
+          </tr>
+        </thead>
+
+        <tbody>
+<tr *ngFor="let cd of filteredList">
+            <td>{{ cd.MemoNumber }}</td>
+            <td>{{ cd.FiscalYear }}</td>
+            <td>{{ cd.PostingDate | date }}</td>
+            <!-- <td>{{ cd.DocHeaderText }}</td> -->
+            <td>{{ cd.Amount }}</td>
+            <!-- <td>{{ cd.Currency }}</td> -->
+<td>{{ formatDocType(cd.DocType) }}</td>
+            <td>{{ cd.CreatedBy }}</td>
+            <td>{{ cd.MemoType }}</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <!-- NO DATA -->
+    <div class="no-data" *ngIf="!isLoading && !creditDebitList.length">
+      No Credit / Debit Memo records found.
+    </div>
+
+  </div>
+
+</div>

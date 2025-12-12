@@ -1,0 +1,79 @@
+<div class="dashboard-wrapper">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2 class="logo">Vendor Portal</h2>
+    
+
+    <ul class="menu">
+
+      <!-- <li class="menu-item" (click)="goToProfile()">
+        <span>👤</span> Profile
+      </li> -->
+
+      <li class="menu-item active">
+        <span>📊</span> Dashboard
+      </li>
+
+<li class="menu-item financial" (click)="goToFinancialSheet()">
+  <span>💰</span> Financial Sheet
+</li>
+
+    </ul>
+
+      <li class="menu-item" (click)="goToProfile()">
+        <span>👤</span> Profile
+      </li>
+
+    <div class="logout-section">
+      <button (click)="logout()">Logout</button>
+    </div>
+    
+  </div>
+
+  <!-- MAIN AREA -->
+  <div class="main-content">
+
+    <!-- TOP HEADER -->
+    <div class="top-header">
+      <h2>Vendor Dashboard</h2>
+      <!-- <li class="menu-item" (click)="goToProfile()">
+        <span>👤</span> Profile
+      </li> -->
+    </div>
+
+
+    <!-- WELCOME CARD -->
+    <!-- <div class="welcome-card">
+      <h3>Welcome Vendor</h3>
+      <p><strong>Vendor ID:</strong> {{ vendorId }}</p>
+    </div>
+     -->
+
+    <!-- DASHBOARD CARDS -->
+    <div class="cards-container">
+
+
+<div class="dashboard-card" (click)="goToRfq()">
+  <h4>Request for Quotation</h4>
+  <!-- <p>View all RFQ documents and status.</p> -->
+</div>
+
+
+<div class="dashboard-card" (click)="goToPo()">
+  <h4>Purchase Orders</h4>
+  <!-- <p>Access your purchase orders.</p> -->
+</div>
+
+
+<div class="dashboard-card" (click)="goToGr()">
+  <h4>Goods Receipts</h4>
+  <!-- <p>Check confirmed deliveries and receipts.</p> -->
+</div>
+
+
+    </div>
+
+  </div>
+
+</div>

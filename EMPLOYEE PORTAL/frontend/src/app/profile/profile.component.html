@@ -1,0 +1,82 @@
+<div class="profile-wrapper">
+<button class="back-btn" (click)="goBack()">← Back</button>
+
+  <!-- Profile Card -->
+  <div class="profile-card">
+
+    <!-- Avatar -->
+    <div class="avatar">
+      {{ (profile?.first_name || 'E').charAt(0) }}
+    </div>
+
+    <!-- Name -->
+    <h1 class="emp-name">
+      {{ profile?.first_name || '' }} {{ profile?.last_name || '' }}
+    </h1>
+
+    <!-- Employee ID -->
+    <p class="emp-id">Employee ID: {{ profile?.empid || '-' }}</p>
+
+    <hr class="divider">
+
+    <!-- Details -->
+    <div class="details-grid">
+
+      <div class="detail">
+        <span class="label">Email</span>
+        <span class="colon">:</span>
+        <span class="value">{{ profile?.email || '-' }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">Gender</span>
+        <span class="colon">:</span>
+        <span class="value">{{ profile?.gender || '-' }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">Date of Birth</span>
+        <span class="colon">:</span>
+        <span class="value">{{ profile?.dob || '-' }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">Nationality</span>
+        <span class="colon">:</span>
+        <span class="value">{{ profile?.nationality || '-' }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">Position</span>
+        <span class="colon">:</span>
+        <span class="value">{{ profile?.position || '-' }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">Org Unit</span>
+        <span class="colon">:</span>
+        <span class="value">{{ profile?.org_unit || '-' }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">Payroll Area</span>
+        <span class="colon">:</span>
+        <span class="value">{{ profile?.payroll_area || '-' }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">Employee Group</span>
+        <span class="colon">:</span>
+        <span class="value">{{ profile?.employee_group || '-' }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">Company Code</span>
+        <span class="colon">:</span>
+        <span class="value">{{ profile?.company_code || '-' }}</span>
+      </div>
+
+    </div>
+
+  </div>
+</div>

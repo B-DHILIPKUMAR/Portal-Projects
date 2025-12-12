@@ -1,0 +1,157 @@
+.dashboard-wrapper {
+  display: flex;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #0b3c6f, #0f5ca8);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 18px;
+}
+
+.logo {
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.menu-item {
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+
+.menu-item.active {
+  background: #ffffff;
+  color: #052e63;
+  font-weight: 600;
+}
+
+/* LOGOUT */
+.logout-section button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: white;
+  color: #052e63;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* MAIN */
+.main-content {
+  flex: 1;
+  background: #f4f6f9;
+  padding: 25px 35px;
+}
+
+/* HEADER */
+.top-header {
+  background: #052e63;
+  color: #fff;
+  padding: 18px 30px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+/* LOADER + ERROR */
+.loader {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 18px;
+}
+
+.error-box {
+  background: #ffdede;
+  color: #b00020;
+  padding: 12px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+/* TABLE */
+.table-wrapper {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead {
+  background: #052e63;
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background: #f4f6f9;
+}
+
+.no-data {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-btn {
+  background: white;
+  color: #052e63;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.search-box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-box input {
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 240px;
+}
+
+.clear-btn {
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #ffffff;
+  color: #052e63;
+  cursor: pointer;
+  font-weight: 500;
+}

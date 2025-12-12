@@ -1,0 +1,51 @@
+<div class="dash-bg">
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="left-section">
+      <i class="hamburger" (click)="toggleSidebar()">☰</i>
+      <span class="title">Dashboard</span>
+    </div>
+
+    <div class="right-section">
+      <i class="profile-icon" (click)="goTo('/profile')">👤</i>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <div class="sidebar" [class.open]="sidebarOpen">
+    <ul>
+      <li (click)="goTo('/dashboard')">Dashboard</li>
+      <li (click)="goTo('/leave')">Leave</li>
+      <li (click)="goTo('/emppay')">Pay Data</li>
+      <li class="logout" (click)="logout()">Logout</li>
+    </ul>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" *ngIf="sidebarOpen" (click)="toggleSidebar()"></div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <div class="glass-card">
+
+      <div class="tiles">
+
+        <div class="tile" (click)="goTo('/leave')">
+          <div class="tile-title">Leave</div>
+          <div class="tile-desc">Apply & view leave status</div>
+        </div>
+
+        <div class="tile" (click)="goTo('/emppay')">
+          <div class="tile-title">Pay Data</div>
+          <div class="tile-desc">View salary, payslips & more</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

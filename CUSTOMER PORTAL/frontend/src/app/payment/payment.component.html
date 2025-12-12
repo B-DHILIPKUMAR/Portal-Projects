@@ -1,0 +1,64 @@
+<div class="payment-container">
+  <button class="back-btn" (click)="goBack()">← Back</button>
+
+
+  <h2 class="page-title">Payment Details</h2>
+
+  <!-- SEARCH BAR -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      placeholder="Search Billing / Currency..."
+      [(ngModel)]="searchText"
+      (input)="applySearch()"
+      class="search-input"
+    />
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading Payments...</p>
+  </div>
+
+  <!-- Error -->
+  <p *ngIf="error && !loading" class="error-box">
+    {{ error }}
+  </p>
+
+  <!-- Payment Table -->
+  <div *ngIf="!loading && !error && filteredPayments.length > 0" class="table-card">
+    <div class="table-scroll">
+      <table class="payment-table">
+        <thead>
+          <tr>
+            <th>BILLING DOC NO</th>
+            <th>BILLING DATE</th>
+            <th>DUE DATE</th>
+            <th>NET VALUE</th>
+            <th>CURRENCY</th>
+            <th>AGING DAYS</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let p of filteredPayments">
+            <td>{{ p.billing_doc_no }}</td>
+            <td>{{ p.billing_date }}</td>
+            <td>{{ p.due_date }}</td>
+            <td>{{ p.net_value }}</td>
+            <td>{{ p.currency }}</td>
+            <td>{{ p.aging_days }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- No Data -->
+  <p *ngIf="!loading && filteredPayments.length === 0 && !error" class="no-data-text">
+    No payment records found.
+  </p>
+
+</div>

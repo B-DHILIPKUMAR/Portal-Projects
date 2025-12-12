@@ -1,0 +1,88 @@
+<div class="dashboard-wrapper">
+
+  <!-- SIDEBAR
+  <div class="sidebar">
+    <h3 class="logo">Vendor Portal</h3>
+
+    <ul class="menu">
+      <li class="menu-item" (click)="goToDashboard()">📊 Dashboard</li>
+      <li class="menu-item active">💳 Payments</li>
+    </ul>
+
+    <div class="logout-section">
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div> -->
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+<div class="top-header header-flex">
+
+<button class="back-btn" (click)="goBack()">← Back</button>
+
+  <h2>Payment Details</h2>
+
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Search Invoice / Year / Currency"
+      [(ngModel)]="searchText"
+      (input)="applyFilter()"
+    />
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+</div>
+
+
+    <!-- LOADER -->
+    <div class="loader" *ngIf="isLoading">
+      Loading payment data...
+    </div>
+
+    <!-- ERROR -->
+    <div class="error-box" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-wrapper" *ngIf="!isLoading && paymentList.length">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Invoice No</th>
+            <th>Fiscal Year</th>
+            <th>Invoice Date</th>
+            <th>Due Date</th>
+            <th>Amount</th>
+            <th>Currency</th>
+            <th>Aging (Days)</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let pay of filteredList">
+            <td>{{ pay.InvoiceNumber }}</td>
+            <td>{{ pay.FiscalYear }}</td>
+            <td>{{ pay.InvoiceDate | date }}</td>
+            <td>{{ pay.DueDate | date }}</td>
+            <td>{{ pay.Amount }}</td>
+            <td>{{ pay.Currency }}</td>
+            <td>{{ pay.AgingDays }}</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <!-- NO DATA -->
+    <div class="no-data" *ngIf="!isLoading && !paymentList.length">
+      No Payment records found.
+    </div>
+
+  </div>
+
+</div>

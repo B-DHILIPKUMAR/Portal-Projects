@@ -1,0 +1,89 @@
+/* FULL BACKGROUND */
+.page-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #e2b4d4, #8ea2f2);
+}
+
+/* GLASS CARD */
+.glass-card {
+  width: 380px;
+  padding: 40px 30px 35px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+/* USER ICON */
+.avatar {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 18px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* TITLE */
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #003b71;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #123;
+  margin-bottom: 25px;
+}
+
+/* INPUTS */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input {
+  width: 80%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.7);
+  font-size: 15px;
+}
+
+/* BUTTON */
+.btn-login {
+  width: 80%;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  background: #003b71;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background: #012d55;
+}
+
+/* ERROR MESSAGE */
+.error {
+  margin-top: 15px;
+  color: red;
+  font-size: 14px;
+}

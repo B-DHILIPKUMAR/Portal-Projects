@@ -1,0 +1,63 @@
+<div class="inquiry-container">
+  <button class="back-btn" (click)="goBack()">← Back</button>
+
+
+  <h2 class="page-title">Customer Inquiry Details</h2>
+
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Search Inquiry / Material / Description..."
+      [(ngModel)]="searchText"
+      (input)="onSearchChange()"
+    />
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+  <!-- loading / error blocks same as before -->
+
+  <div *ngIf="!loading && !error && inquiryList.length > 0" class="table-card">
+    <div class="table-scroll-y">
+      <table class="payment-table">
+        <thead>
+          <tr>
+            <th>INQUIRY NO</th>
+            <th>ITEM DATE</th>
+            <th>MATERIAL CODE</th>
+            <th>DESCRIPTION</th>
+            <th>ORDER QTY</th>
+            <th>UNIT</th>
+            <th>STATUS</th>
+            <th>REQ. DELIVERY</th>
+          </tr>
+        </thead>
+<tbody>
+  <tr *ngFor="let row of inquiryList">
+    <td>{{ row.inquiryNo }}</td>
+    <td>{{ row.itemDate }}</td>
+    <td>{{ row.matCode }}</td>
+    <td>{{ row.description }}</td>
+    <td>{{ row.orderQty }}</td>
+
+    <!-- ✅ UNIT FULL FORM -->
+    <td>{{ getUnitFullForm(row.unit) }}</td>
+
+    <!-- ✅ STATUS FULL FORM -->
+    <td>
+      <span class="status-chip">
+        {{ getStatusFullForm(row.status) }}
+      </span>
+    </td>
+
+    <td>{{ row.reqDelDate }}</td>
+  </tr>
+</tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <p *ngIf="!loading && inquiryList.length === 0 && !error" class="no-data-text">
+    No inquiry records found.
+  </p>
+</div>

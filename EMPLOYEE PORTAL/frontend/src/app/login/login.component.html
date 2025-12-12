@@ -1,0 +1,44 @@
+<div class="page-wrapper">
+
+  <div class="glass-card">
+
+    <!-- USER ICON -->
+    <div class="avatar">
+      <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" />
+    </div>
+
+    <!-- TITLE -->
+    <h2 class="title">Welcome to Employee Portal</h2>
+    <!-- <p class="subtitle">Please login to continue</p> -->
+
+    <!-- USER ID -->
+    <div class="input-group">
+      <input
+        type="text"
+        [(ngModel)]="userId"
+        placeholder="User ID"
+        class="input"
+      />
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="input-group">
+      <input
+        type="password"
+        [(ngModel)]="password"
+        placeholder="Password"
+        class="input"
+      />
+    </div>
+
+    <!-- LOGIN BUTTON -->
+    <button (click)="onLogin()" class="btn-login" [disabled]="loading">
+      {{ loading ? 'Logging in...' : 'Login' }}
+    </button>
+
+    <!-- ERROR -->
+    <p class="error" *ngIf="message">{{ message }}</p>
+
+  </div>
+
+</div>

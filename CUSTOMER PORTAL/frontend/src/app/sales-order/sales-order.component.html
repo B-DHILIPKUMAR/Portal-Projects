@@ -1,0 +1,81 @@
+<div class="sales-container">
+  <button class="back-btn" (click)="goBack()">← Back</button>
+
+
+  <h2 class="page-title">Sales Order Details</h2>
+
+  <!-- SEARCH BAR -->
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Search Order / Material / Description..."
+      [(ngModel)]="searchText"
+      (input)="onSearchChange()"
+    />
+
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading Sales Orders...</p>
+  </div>
+
+  <!-- Error -->
+  <p *ngIf="error && !loading" class="error-box">
+    {{ error }}
+  </p>
+
+  <!-- Sales Table -->
+  <div *ngIf="!loading && !error && salesList.length > 0" class="table-card">
+    <div class="table-scroll-y">
+
+      <table class="sales-table">
+        <thead>
+          <tr>
+            <th>ORDER NO</th>
+            <th>ORDER DATE</th>
+            <th>MATERIAL CODE</th>
+            <th>DESCRIPTION</th>
+            <th>ORDER QTY</th>
+            <th>UNIT</th>
+            <th>STATUS</th>
+            <th>REQ. DELIVERY</th>
+          </tr>
+        </thead>
+
+        <tbody>
+  <tr *ngFor="let order of salesList">
+    <td>{{ order.order_no }}</td>
+    <td>{{ order.order_date }}</td>
+    <td>{{ order.mat_code }}</td>
+    <td class="description-cell">{{ order.description }}</td>
+    <td>{{ order.order_qty }}</td>
+
+    <!-- ✅ UNIT FULL FORM -->
+    <td>{{ getUnitFullForm(order.unit) }}</td>
+
+    <!-- ✅ STATUS FULL FORM -->
+    <td>
+      <span class="status-chip" [ngClass]="order.status?.toLowerCase()">
+        {{ getStatusFullForm(order.status) }}
+      </span>
+    </td>
+
+    <td>{{ order.req_del_date }}</td>
+  </tr>
+</tbody>
+
+
+      </table>
+
+    </div>
+  </div>
+
+  <!-- No Data -->
+  <p *ngIf="!loading && salesList.length === 0 && !error" class="no-data-text">
+    No sales orders found.
+  </p>
+
+</div>

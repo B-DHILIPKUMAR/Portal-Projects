@@ -1,0 +1,93 @@
+<div class="dashboard-wrapper">
+<!-- 
+  SIDEBAR
+  <div class="sidebar">
+    <h3 class="logo">Vendor Portal</h3>
+
+    <ul class="menu">
+      <li class="menu-item" (click)="goToDashboard()">📊 Dashboard</li>
+      <li class="menu-item active">📄 Purchase Order</li>
+    </ul>
+
+    <div class="logout-section">
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div> -->
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+    <!-- HEADER -->
+<div class="top-header header-flex">
+
+  <button class="back-btn" (click)="goBack()">← Back</button>
+
+  <h2>Purchase Orders</h2>
+
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Search PO / Doc Type / Material / Currency"
+      [(ngModel)]="searchText"
+      (input)="applyFilter()"
+    />
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+</div>
+
+    <!-- LOADER -->
+    <div class="loader" *ngIf="isLoading">Loading PO data...</div>
+
+    <!-- ERROR -->
+    <div class="error-box" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-wrapper" *ngIf="!isLoading && poList.length">
+
+      <table>
+        <thead>
+          <tr>
+            <th>PO No</th>
+            <th>Doc Type</th>
+            <th>Purchase Org</th>
+            <th>Doc Date</th>
+            <th>Material</th>
+            <th>Description</th>
+            <th>Qty</th>
+            <th>Unit</th>
+            <th>Net Price</th>
+            <th>Currency</th>
+            <th>Delivery Date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+<tr *ngFor="let po of filteredList">
+            <td>{{ po.PoNumber }}</td>
+<td>{{ formatDocType(po.DocType) }}</td>
+            <td>{{ po.PurchaseOrg }}</td>
+            <td>{{ po.DocDate | date }}</td>
+            <td>{{ po.Material }}</td>
+            <td>{{ po.ShortText }}</td>
+            <td>{{ po.Quantity }}</td>
+<td>{{ formatUnit(po.Unit) }}</td>
+            <td>{{ po.NetPrice }}</td>
+            <td>{{ po.Currency }}</td>
+            <td>{{ po.DeliveryDate | date }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <!-- NO DATA -->
+    <div class="no-data" *ngIf="!isLoading && !poList.length">
+      No Purchase Orders found.
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,93 @@
+<div class="dashboard-wrapper">
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+    <!-- HEADER -->
+    <div class="top-header">
+      <ul class="menu">
+        <button class="back-btn" (click)="goBack()">
+  ← Back
+</button>
+
+      <!-- <li class="menu-item" (click)="goBack()">⬅ Back</li> -->
+      <!-- <li class="menu-item active">🧾 Invoice</li> -->
+    </ul>
+      <h2>Invoices Details</h2>
+
+      <div class="search-box">
+        <input
+          type="text"
+          placeholder="Search Invoice / Material / PO"
+          [(ngModel)]="searchText"
+          (input)="search()"
+        />
+        <button (click)="clearSearch()">Clear</button>
+      </div>
+    </div>
+
+    <!-- LOADER -->
+    <div class="loader" *ngIf="loading">
+      Loading invoice data...
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-wrapper" *ngIf="!loading && filteredInvoices.length">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Invoice No</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Currency</th>
+            <th>PO No</th>
+            <th>Material</th>
+            <th>Description</th>
+            <th>Qty</th>
+            <th>Unit</th>
+            <th>Unit Price</th>
+            <th>PDF</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let inv of filteredInvoices">
+
+            <td>{{ inv.invoiceNo }}</td>
+            <td>{{ inv.invoiceDate | date:'dd-MM-yyyy' }}</td>
+            <td>{{ inv.totalAmount }}</td>
+            <td>{{ inv.currency }}</td>
+            <td>{{ inv.poNo }}</td>
+            <td>{{ inv.materialNo }}</td>
+            <td>{{ inv.description }}</td>
+            <td>{{ inv.quantity }}</td>
+
+            <td>
+              {{ inv.unit === 'KG' ? 'KG - Kilogram' : inv.unit }}
+            </td>
+
+            <td>{{ inv.unitPrice }}</td>
+
+            <td>
+              <button
+                class="download-btn"
+                (click)="downloadPdf(inv.invoiceNo)"
+                [disabled]="loadingPdf[inv.invoiceNo]">
+                {{ loadingPdf[inv.invoiceNo] ? 'Downloading...' : 'Download' }}
+              </button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <!-- NO DATA -->
+    <div class="no-data" *ngIf="!loading && !filteredInvoices.length">
+      No invoice records found.
+    </div>
+
+  </div>
+</div>

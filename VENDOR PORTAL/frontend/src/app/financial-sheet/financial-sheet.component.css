@@ -1,0 +1,105 @@
+.dashboard-wrapper {
+  display: flex;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #0b3c6f, #0f5ca8);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 18px;
+}
+
+.logo {
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.menu-item {
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  cursor: pointer;
+    display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.2s;
+}
+
+.menu-item.active {
+  background: #ffffff;
+  color: #052e63;
+  font-weight: 600;
+}
+
+/* LOGOUT */
+.logout-section button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: white;
+  color: #052e63;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* MAIN */
+.main-content {
+  flex: 1;
+  background: #f4f6f9;
+  padding: 25px 35px;
+}
+
+/* HEADER */
+.top-header {
+  background: #052e63;
+  color: #fff;
+  padding: 18px 30px;
+  border-radius: 10px;
+  margin-bottom: 35px;
+}
+
+/* CARDS */
+.cards-container {
+  display: flex;
+  gap: 25px;
+}
+
+.dashboard-card {
+  flex: 1;
+  background: linear-gradient(135deg, #0b3c6f, #0f5ca8);
+  color: #fff;
+  padding: 30px 22px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.dashboard-card h4 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.dashboard-card p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .cards-container {
+    flex-direction: column;
+  }
+}

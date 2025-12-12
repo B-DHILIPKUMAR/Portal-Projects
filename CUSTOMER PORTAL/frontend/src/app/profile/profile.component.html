@@ -1,0 +1,40 @@
+<div class="profile-wrapper">
+
+  <div *ngIf="loading" class="loader">Loading Profile...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="!loading && !error" class="profile-card">
+
+    <div class="avatar-wrapper">
+      <div class="avatar-circle"></div>
+    </div>
+
+    <h2>{{ profileData.name }}</h2>
+    <p class="cust-id">Customer ID: {{ profileData.customerId }}</p>
+
+    <div class="details-grid">
+
+      <div class="detail">
+        <label>City</label>
+        <p>{{ profileData.city }}</p>
+      </div>
+
+      <div class="detail">
+        <label>Country</label>
+        <p>{{ profileData.country }}</p>
+      </div>
+
+      <div class="detail full">
+        <label>Address</label>
+        <p>{{ profileData.address }}</p>
+      </div>
+
+      <div class="detail">
+        <label>Postal Code</label>
+        <p>{{ profileData.postalCode }}</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>

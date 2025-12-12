@@ -1,0 +1,94 @@
+<div class="dashboard-wrapper">
+
+  <!-- SIDEBAR
+  <div class="sidebar">
+    <h3 class="logo">Vendor Portal</h3>
+
+    <ul class="menu">
+      <li class="menu-item" (click)="goToDashboard()">📊 Dashboard</li>
+      <li class="menu-item active">📦 Goods Receipt</li>
+    </ul>
+
+    <div class="logout-section">
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div> -->
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+    <!-- HEADER -->
+<div class="top-header header-flex">
+
+  <button class="back-btn" (click)="goBack()">← Back</button>
+
+  <h2>Goods Receipts</h2>
+
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Search Doc / Year / Material / PO"
+      [(ngModel)]="searchText"
+      (input)="applyFilter()"
+    />
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+</div>
+
+
+    <!-- LOADER -->
+    <div class="loader" *ngIf="isLoading">
+      Loading Goods Receipt data...
+    </div>
+
+    <!-- ERROR -->
+    <div class="error-box" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-wrapper" *ngIf="!isLoading && grList.length">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Material Doc</th>
+            <th>Doc Year</th>
+            <th>Item</th>
+            <th>Material</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Posting Date</th>
+            <th>GR Date</th>
+            <th>PO No</th>
+            <th>PO Item</th>
+          </tr>
+        </thead>
+
+        <tbody>
+<tr *ngFor="let gr of filteredList">
+            <td>{{ gr.MaterialDoc }}</td>
+            <td>{{ gr.DocYear }}</td>
+            <td>{{ gr.ItemNumber }}</td>
+            <td>{{ gr.Material }}</td>
+            <td>{{ gr.Quantity }}</td>
+<td>{{ formatUnit(gr.Unit) }}</td>
+            <td>{{ gr.PostingDate | date }}</td>
+            <td>{{ gr.GrDate | date }}</td>
+            <td>{{ gr.PoNumber }}</td>
+            <td>{{ gr.PoItem }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <!-- NO DATA -->
+    <div class="no-data" *ngIf="!isLoading && !grList.length">
+      No Goods Receipt records found.
+    </div>
+
+  </div>
+
+</div>

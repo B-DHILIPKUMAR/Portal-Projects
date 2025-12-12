@@ -1,0 +1,43 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #fff;
+  --accent: #0b63d6;
+  --muted: #6b7280;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, Roboto, "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+}
+
+.app-header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.brand {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.app-main {
+  min-height: calc(100vh - 56px - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.app-footer {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+}

@@ -1,0 +1,256 @@
+/* .delivery-container {
+  padding: 25px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1a73e8;
+}
+
+.loading-box,
+.error-box,
+.empty-box {
+  padding: 18px;
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loading-box {
+  background: #e8f0fe;
+  color: #1a73e8;
+}
+
+.error-box {
+  background: #fdecea;
+  color: #e53935;
+  border: 1px solid #e53935;
+}
+
+.empty-box {
+  background: #fff8e1;
+  color: #ff9800;
+  border: 1px solid #ff9800;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 4px solid #a0c4ff;
+  border-top-color: #1a73e8;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.table-wrapper {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+thead {
+  background: #1a73e8;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+tr:hover {
+  background: #f5f5f5;
+} */
+
+
+
+/* PAGE BACKGROUND */
+.delivery-container {
+  width: 100%;
+  padding: 0px;
+  background: linear-gradient(135deg, #8ab4e6, #c89ddb);
+  min-height: 100vh;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+/* TITLE */
+.page-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 25px;
+  text-shadow: 0px 3px 10px rgba(0,0,0,0.25);
+}
+
+/* LOADING + ERROR */
+.loading-container, .error-box, .no-data-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.error-box {
+  color: #ffcccc;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 4px solid #dee7ff;
+  border-radius: 50%;
+  border-top-color: #001aff;
+  margin: 0 auto 10px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* TABLE CARD */
+.table-card {
+  margin-top: 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+  padding: 10px;
+}
+
+.table-scroll {
+  max-height: 550px;
+  overflow-y: auto;
+}
+
+/* TABLE STYLING */
+.delivery-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.delivery-table thead {
+  background: rgba(18,45,75,0.95);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+
+.delivery-table th {
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.delivery-table td {
+  padding: 14px;
+  font-size: 15px;
+  color: #000;
+}
+
+.delivery-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.55);
+}
+
+.delivery-table tbody tr:nth-child(odd) {
+  background: rgba(255,255,255,0.28);
+}
+
+.delivery-table tbody tr:hover {
+  background: rgba(255,255,255,0.65);
+  transition: 0.2s;
+}
+
+/* STATUS CHIP COLOR */
+.status-chip {
+  padding: 6px 12px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* .status-chip.a { background:#caffd5; color:#046c2c; }
+.status-chip.b { background:#ffe9b6; color:#8a5505; }
+.status-chip.c { background:#ffd2d2; color:#8e0000; } */
+
+/* NO DATA */
+.no-data-text {
+  color: #fff;
+}
+
+/* Scrollbar */
+.table-scroll::-webkit-scrollbar { width: 10px; }
+.table-scroll::-webkit-scrollbar-thumb {
+  background: #7fa7ff;
+  border-radius: 15px;
+}
+
+/* SEARCH BAR */
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 70%;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+}
+
+.clear-btn {
+  background: #002aff;
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 25px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  background: #001fd1;
+}
+.back-btn {
+  position: fixed;
+  top: 40px;
+  left: 20px;
+  background: #003b71;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+.back-btn:hover {
+  background: #002a52;
+}

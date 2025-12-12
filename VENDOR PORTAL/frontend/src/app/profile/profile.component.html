@@ -1,0 +1,65 @@
+<div class="profile-page">
+
+  <!-- HEADER -->
+  <div class="profile-header">
+    <h2>Vendor Profile</h2>
+    <!-- <button class="logout-btn" (click)="logout()">Logout</button> -->
+  </div>
+
+  <!-- LOADER -->
+  <div class="loader" *ngIf="isLoading">
+    Loading profile...
+  </div>
+
+  <!-- ERROR -->
+  <div class="error-box" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <!-- PROFILE CARD -->
+  <div class="profile-card" *ngIf="vendorProfile">
+
+    <div class="avatar">
+      {{ vendorProfile.Name?.charAt(0) }}
+    </div>
+
+    <h3 class="name">{{ vendorProfile.Name }}</h3>
+    <p class="vendor-id">Vendor ID: {{ vendorProfile.VendorId }}</p>
+
+    <div class="details-grid">
+
+      <div class="detail">
+        <span class="label">Street</span>
+        <span class="value">{{ vendorProfile.Street }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">City</span>
+        <span class="value">{{ vendorProfile.City }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">Postal Code</span>
+        <span class="value">{{ vendorProfile.PostalCode }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">Country</span>
+        <span class="value">{{ vendorProfile.Country }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">Email</span>
+        <span class="value">{{ vendorProfile.Email }}</span>
+      </div>
+
+      <div class="detail">
+        <span class="label">Telephone</span>
+        <span class="value">{{ vendorProfile.Telephone }}</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

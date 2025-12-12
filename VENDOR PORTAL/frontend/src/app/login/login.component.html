@@ -1,0 +1,50 @@
+<div class="page-wrapper">
+  <div class="login-card">
+
+    <!-- LEFT -->
+    <div class="login-left">
+      <h1 class="login-title">User Login</h1>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <div class="input-group">
+          <span class="icon">👤</span>
+          <input
+            type="text"
+            placeholder="Username"
+            formControlName="vendorId"
+          />
+        </div>
+
+        <div class="input-group">
+          <span class="icon">🔒</span>
+          <input
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+
+        <!-- <div class="row">
+          <label>
+            <input type="checkbox" /> Remember me
+          </label>
+          <span class="forgot">Forgot Password?</span>
+        </div> -->
+
+        <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+        <button type="submit" [disabled]="isLoading">
+          {{ isLoading ? 'Logging in...' : 'LOGIN' }}
+        </button>
+
+      </form>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="login-right">
+      <div class="lock">🔐</div>
+    </div>
+
+  </div>
+</div>

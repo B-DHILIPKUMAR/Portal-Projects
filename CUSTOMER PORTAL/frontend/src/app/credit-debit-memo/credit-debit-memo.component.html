@@ -1,0 +1,74 @@
+<div class="memo-container">
+  <button class="back-btn" (click)="goBack()">← Back</button>
+
+
+  <h2 class="page-title">Credit / Debit Memo Details</h2>
+
+  <!-- SEARCH BAR -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      placeholder="Search Bill / Material / Currency..."
+      [(ngModel)]="searchText"
+      (input)="applySearch()"
+      class="search-input"
+    />
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading Memo Records...</p>
+  </div>
+
+  <!-- Error -->
+  <p *ngIf="error && !loading" class="error-box">
+    {{ error }}
+  </p>
+
+  <!-- Memo Table -->
+  <div *ngIf="!loading && !error && filteredMemoList.length > 0" class="table-card">
+    <div class="table-scroll">
+      <table class="memo-table">
+        <thead>
+          <tr>
+            <th>BILL NO</th>
+            <th>BILL DATE</th>
+            <th>BILL TYPE</th>
+            <th>MATERIAL CODE</th>
+            <th>DESCRIPTION</th>
+            <th>QUANTITY</th>
+            <th>UNIT</th>
+            <th>NET AMOUNT</th>
+            <th>CURRENCY</th>
+          </tr>
+        </thead>
+
+        <tbody>
+  <tr *ngFor="let memo of filteredMemoList">
+    <td>{{ memo.bill_no }}</td>
+    <td>{{ memo.bill_date }}</td>
+    <td>{{ getBillTypeFullForm(memo.bill_type) }}</td>
+    <td>{{ memo.mat_code }}</td>
+    <td class="description-cell">{{ memo.description }}</td>
+    <td>{{ memo.quantity }}</td>
+
+    <!-- ✅ UNIT FULL FORM -->
+    <td>{{ getUnitFullForm(memo.unit) }}</td>
+
+    <td>{{ memo.net_amount }}</td>
+    <td>{{ memo.currency }}</td>
+  </tr>
+</tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <!-- No Data -->
+  <p *ngIf="!loading && filteredMemoList.length === 0 && !error" class="no-data-text">
+    No memo records found.
+  </p>
+
+</div>

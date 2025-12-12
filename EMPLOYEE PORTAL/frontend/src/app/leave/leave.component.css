@@ -1,0 +1,124 @@
+.leave-wrapper {
+  padding: 40px 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e3a7c0, #8ea2f8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Loading text */
+.loading-box {
+  margin-top: 120px;
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Error box */
+.error-box {
+  background: rgba(255, 80, 80, 0.2);
+  padding: 16px 22px;
+  color: #8b0000;
+  border-left: 6px solid #ff4d4d;
+  border-radius: 12px;
+  width: 60%;
+  margin: 40px auto;
+  backdrop-filter: blur(10px);
+}
+
+/* No data */
+.no-data {
+  margin-top: 100px;
+  color: #fff;
+  font-size: 20px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Leave List container */
+.leave-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 900px;
+  margin-top: 20px;
+}
+
+/* Leave Card – Glassmorphism */
+.leave-card {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 28px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.leave-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+}
+
+/* LEFT SECTION */
+.date-box {
+  font-size: 20px;
+  font-weight: 700;
+  color: #022e63;
+}
+
+.date-box .to {
+  margin: 0 10px;
+  color: #444;
+  font-size: 16px;
+}
+
+.details {
+  margin-top: 14px;
+  color: #1d2b3a;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.details p strong {
+  color: #022e63;
+}
+
+/* RIGHT SECTION */
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-box {
+  background: rgba(0, 150, 0, 0.15);
+  color: #006400;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+
+/* Back Button */
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #003b71;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.back-btn:hover {
+  background: #002a52;
+}

@@ -1,0 +1,127 @@
+<!-- <div class="delivery-container">
+
+  <h2 class="page-title">📦 Delivery Details</h2>
+
+  <div *ngIf="loading" class="loading-box">
+    <div class="spinner"></div>
+    <p>Loading delivery details...</p>
+  </div>
+
+  <div *ngIf="error && !loading" class="error-box">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!loading && !error && deliveries.length > 0" class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Delivery No</th>
+          <th>Delivery Date</th>
+          <th>Status</th>
+          <th>GI Date</th>
+          <th>Material Code</th>
+          <th>Description</th>
+          <th>Delivered Qty</th>
+          <th>Target Qty</th>
+          <th>Unit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of deliveries">
+          <td>{{ item.delivery_no }}</td>
+          <td>{{ item.delivery_date }}</td>
+          <td>{{ item.status }}</td>
+          <td>{{ item.gi_date }}</td>
+          <td>{{ item.mat_code }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.delivery_qty }}</td>
+          <td>{{ item.target_qty }}</td>
+          <td>{{ item.unit }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="!loading && deliveries.length === 0 && !error" class="empty-box">
+    No delivery records found.
+  </div>
+
+</div> -->
+
+
+<div class="delivery-container">
+<button class="back-btn" (click)="goBack()">← Back</button>
+
+  <h2 class="page-title">Delivery Order Details</h2>
+  <!-- SEARCH BAR -->
+<div class="search-wrapper">
+  <input
+    type="text"
+    class="search-input"
+    placeholder="Search Delivery / Material / Description..."
+    [(ngModel)]="searchText"
+    (input)="onSearchChange()" />
+
+  <button class="clear-btn" (click)="clearSearch()">Clear</button>
+</div>
+
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading Deliveries...</p>
+  </div>
+
+  <!-- Error -->
+  <p *ngIf="error && !loading" class="error-box">
+    {{ error }}
+  </p>
+
+  <!-- Delivery Table -->
+  <div *ngIf="!loading && !error && deliveries.length > 0" class="table-card">
+    <div class="table-scroll">
+      <table class="delivery-table">
+        <thead>
+          <tr>
+            <th>DELIVERY NO </th>
+            <th>DELIVERY DATE </th>
+            <th>MATERIAL CODE </th>
+            <th>DESCRIPTION </th>
+            <th>DELIVERY QTY </th>
+            <th>UNIT </th>
+            <th>STATUS </th>
+            <th>GI DATE </th>
+          </tr>
+        </thead>
+        <tbody>
+  <tr *ngFor="let item of deliveries">
+    <td>{{ item.delivery_no }}</td>
+    <td>{{ item.delivery_date }}</td>
+    <td>{{ item.mat_code }}</td>
+    <td class="description-cell">{{ item.description }}</td>
+    <td>{{ item.delivery_qty }}</td>
+
+    <!-- ✅ UNIT FULL FORM -->
+    <td>{{ getUnitFullForm(item.unit) }}</td>
+
+    <!-- ✅ STATUS FULL FORM -->
+    <td>
+      <span class="status-chip" [ngClass]="item.status?.toLowerCase()">
+        {{ getStatusFullForm(item.status) }}
+      </span>
+    </td>
+
+    <td>{{ item.gi_date }}</td>
+  </tr>
+</tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <!-- No Data -->
+  <p *ngIf="!loading && deliveries.length === 0 && !error" class="no-data-text">
+    No delivery orders found.
+  </p>
+
+</div>

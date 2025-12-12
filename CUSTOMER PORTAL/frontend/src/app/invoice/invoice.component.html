@@ -1,0 +1,70 @@
+<div class="invoice-container">
+  <button class="back-btn" (click)="goBack()">← Back</button>
+
+
+  <h2 class="page-title">Invoice Details</h2>
+
+  <!-- ✅ SEARCH BAR -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search Invoice / Description / Currency..."
+      [(ngModel)]="searchText"
+      (input)="applySearch()"
+    />
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading Invoices...</p>
+  </div>
+
+  <!-- Error -->
+  <p *ngIf="errorMessage && !loading" class="error-box">
+    {{ errorMessage }}
+  </p>
+
+  <!-- Invoice Table -->
+  <div *ngIf="!loading && !errorMessage && filteredInvoiceList.length > 0" class="table-card">
+    <div class="table-scroll">
+      <table class="invoice-table">
+        <thead>
+          <tr>
+            <th>INVOICE NO</th>
+            <th>DESCRIPTION</th>
+            <th>AMOUNT</th>
+            <th>CURRENCY</th>
+            <th>DATE</th>
+            <th>DOWNLOAD</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let inv of filteredInvoiceList">
+            <td>{{ inv.VBELN }}</td>
+            <td class="desc-cell">{{ inv.ARKTX }}</td>
+            <td>{{ inv.NETWR }}</td>
+            <td>{{ inv.WAERK }}</td>
+            <td>{{ inv.FKDAT }}</td>
+            <td>
+              <button class="download-btn" (click)="downloadPdf(inv.VBELN)">
+                <span *ngIf="!loadingPdf[inv.VBELN]">⬇ Download</span>
+                <span *ngIf="loadingPdf[inv.VBELN]">⏳...</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+  <!-- No Data -->
+  <p *ngIf="!loading && filteredInvoiceList.length === 0 && !errorMessage" class="no-data-text">
+    No invoice records found.
+  </p>
+
+</div>

@@ -1,0 +1,56 @@
+<div class="dashboard-wrapper">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h3 class="logo">Vendor Portal</h3>
+
+    <ul class="menu">
+      <li class="menu-item" (click)="goToDashboard()">📊 Dashboard</li>
+      <li class="menu-item active">💰 Financial Sheet</li>
+    </ul>
+    <div class="logout-section">
+      <li class="menu-item" (click)="goToProfile()">
+        <span>👤</span>Profile
+      </li>
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+    <!-- HEADER -->
+    <div class="top-header">
+      <h2>Vendor Financial Sheet</h2>
+
+    </div>
+
+    <!-- FINANCIAL CARDS -->
+    <div class="cards-container">
+
+      <!-- <div class="dashboard-card">
+        <h4>Invoice Details</h4>
+        <p>View all the invoices and their status.</p>
+      </div> -->
+      <div class="dashboard-card" (click)="goToInvoice()">
+  <h3>Invoice Details</h3>
+  <!-- <p>View all the invoices and their status.</p> -->
+</div>
+
+
+<div class="dashboard-card" (click)="goToPayment()">
+  <h4>Payment details</h4>
+  <!-- <p>Check the pending payments details.</p> -->
+</div>
+
+<div class="dashboard-card" (click)="goToCreditDebit()">
+  <h4>Credit / Debit Memo</h4>
+  <!-- <p>Access your credit/debit memos.</p> -->
+</div>
+
+
+    </div>
+
+  </div>
+
+</div>

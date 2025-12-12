@@ -1,0 +1,77 @@
+<div class="leave-wrapper">
+
+  <button class="back-btn" (click)="goBack()">← Back</button>
+
+  <div class="header-section">
+    <h1>Leave Details</h1>
+  </div>
+
+  <div *ngIf="loading" class="loading-box">
+    Fetching leave details...
+  </div>
+
+  <div *ngIf="!loading && errorMessage" class="error-box">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!loading && leaves.length === 0" class="no-data">
+    No leave records found.
+  </div>
+
+  <div class="leave-list" *ngIf="!loading && leaves.length > 0">
+
+    <div class="leave-card" *ngFor="let lv of leaves">
+
+      <div class="left">
+
+        <div class="date-box">
+          <span class="from">{{ lv.START_DATE }}</span>
+          <span class="to">to</span>
+          <span class="to-date">{{ lv.END_DATE }}</span>
+        </div>
+
+        <div class="details">
+
+          <p>
+            <strong>Subtype :</strong> {{ lv.SUBTYPE }}
+          </p>
+
+          <p>
+            <strong>Absence (Days) :</strong> {{ lv.ABWTG }}
+          </p>
+
+          <p *ngIf="lv.ABSENCE_TYPE">
+            <strong>Absence Type :</strong> {{ lv.ABSENCE_TYPE }}
+          </p>
+
+          <p *ngIf="lv.QUOTA_TYPE">
+            <strong>Quota Type :</strong> {{ lv.QUOTA_TYPE }}
+          </p>
+
+          <p *ngIf="lv.TIME_QUOTA">
+            <strong>Time Quota :</strong> {{ lv.TIME_QUOTA }}
+          </p>
+
+          <p *ngIf="lv.APPLY_DATE">
+            <strong>Applied On :</strong> {{ lv.APPLY_DATE }}
+          </p>
+
+          <p>
+            <strong>Full Day :</strong>
+            {{ lv.FULLDAY === 'X' ? 'Yes' : 'No' }}
+          </p>
+
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="status-box">
+          Approved
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

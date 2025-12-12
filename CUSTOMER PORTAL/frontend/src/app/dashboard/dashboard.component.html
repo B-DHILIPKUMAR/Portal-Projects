@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
+
+<div class="dashboard-wrapper">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+
+    <button class="hamburger" (click)="toggleSideNav()">
+      <i class="fa-solid fa-bars" *ngIf="!sideNavOpen"></i>
+      <i class="fa-solid fa-xmark" *ngIf="sideNavOpen"></i>
+    </button>
+
+    <div class="title">Customer Portal</div>
+
+    <button class="profile-btn" (click)="goTo('/profile')">
+      <i class="fa-solid fa-user"></i>
+    </button>
+
+  </header>
+
+  <!-- SIDE NAVIGATION -->
+  <aside class="sidenav" [class.open]="sideNavOpen">
+    <ul>
+      <li (click)="goTo('/inquiry')"><i class="fa-solid fa-search"></i> Inquiry</li>
+      <li (click)="goTo('/sales-order')"><i class="fa-solid fa-cart-shopping"></i> Sales Order</li>
+      <li (click)="goTo('/delivery')"><i class="fa-solid fa-truck-fast"></i> Delivery</li>
+
+      <li (click)="toggleFinancial()">
+        <i class="fa-solid fa-file-invoice-dollar"></i> Financial Sheet
+      </li>
+
+      <ul class="sub" *ngIf="financialExpanded">
+        <li (click)="goTo('/invoice')"><i class="fa-solid fa-file-invoice"></i> Invoice</li>
+        <li (click)="goTo('/payment')"><i class="fa-solid fa-credit-card"></i> Payment</li>
+        <li (click)="goTo('/credit-debit-memo')"><i class="fa-solid fa-receipt"></i> Credit Debit Memo</li>
+        <li (click)="goTo('/overall-sales')"><i class="fa-solid fa-chart-line"></i> Overall Sales</li>
+      </ul>
+
+      <li class="logout" (click)="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="tiles">
+      <div class="tile" (click)="goTo('/inquiry')"><div class="emoji">🔍</div> Inquiry</div>
+      <div class="tile" (click)="goTo('/sales-order')"><div class="emoji">🛍️</div> Sales</div>
+      <div class="tile" (click)="goTo('/delivery')"><div class="emoji">🚚</div> Delivery</div>
+      <div class="tile" (click)="toggleFinancial()"><div class="emoji">📂</div> Financial Sheet</div>
+    </div>
+
+    <div class="tiles" *ngIf="financialExpanded">
+      <div class="tile" (click)="goTo('/invoice')"><div class="emoji">🧾</div> Invoice</div>
+      <div class="tile" (click)="goTo('/payment')"><div class="emoji">💵</div> Payment</div>
+      <div class="tile" (click)="goTo('/overall-sales')"><div class="emoji">📊</div> Overall Sales</div>
+      <div class="tile" (click)="goTo('/credit-debit-memo')"><div class="emoji">🧾</div> Credit / Debit</div>
+    </div>
+
+  </main>
+
+</div>

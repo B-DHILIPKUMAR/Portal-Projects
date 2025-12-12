@@ -1,0 +1,70 @@
+<div class="sales-summary-container">
+  <button class="back-btn" (click)="goBack()">← Back</button>
+
+
+  <h2 class="page-title">Overall Sales Summary</h2>
+
+  <!-- ✅ SEARCH BAR -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search Billing / Material / Currency..."
+      [(ngModel)]="searchText"
+      (input)="applySearch()"
+    />
+    <button class="clear-btn" (click)="clearSearch()">Clear</button>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading Summary...</p>
+  </div>
+
+  <!-- Error -->
+  <p *ngIf="error && !loading" class="error-box">
+    {{ error }}
+  </p>
+
+  <!-- Main Table -->
+  <div *ngIf="!loading && !error && filteredSummaryList.length > 0" class="table-card">
+    <div class="table-scroll">
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>BILLING DOC NO</th>
+            <th>BILLING DATE</th>
+            <th>BILLING TYPE</th>
+            <th>MATERIAL NO</th>
+            <th>MATERIAL DESCRIPTION</th>
+            <th>QUANTITY</th>
+            <th>UNIT</th>
+            <th>NET VALUE</th>
+            <th>CURRENCY</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let row of filteredSummaryList">
+            <td>{{ row.billing_doc_no }}</td>
+            <td>{{ row.billing_date }}</td>
+            <td>{{ getBillingTypeFullForm(row.billing_type) }}</td>
+            <td>{{ row.material_no }}</td>
+            <td class="description-cell">{{ row.material_desc }}</td>
+            <td>{{ row.billed_qty }}</td>
+            <td>{{ getUnitFullForm(row.sales_unit) }}</td>
+            <td>{{ row.net_value }}</td>
+            <td>{{ row.currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- No Data -->
+  <p *ngIf="!loading && filteredSummaryList.length === 0 && !error" class="no-data-text">
+    No summary records found.
+  </p>
+
+</div>

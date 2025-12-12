@@ -1,0 +1,103 @@
+ <!-- <div class="wrapper">
+ 
+ 
+  <div class="left-panel">
+    <img src="/kaatTech.png" class="left-image" />
+  </div>
+ 
+ 
+  <div class="right-panel">
+    <div class="login-card">
+ 
+      <div class="profile-icon">
+        <i class="fas fa-user-circle"></i>
+      </div>
+ 
+      <h2>LOGIN</h2>
+ 
+      <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+ 
+     
+        <div class="input-box">
+          <i class="fas fa-user input-icon"></i>
+          <input
+            type="text"
+            placeholder="USERNAME"
+            [(ngModel)]="userId"
+            name="userid"
+            required
+          />
+        </div>
+ 
+     
+        <div class="input-box">
+          <i class="fas fa-lock input-icon"></i>
+          <input
+            type="password"
+            placeholder="PASSWORD"
+            [(ngModel)]="password"
+            name="password"
+            required
+          />
+        </div>
+ 
+        <div class="options-row">
+          <label>
+            <input type="checkbox" />
+            Remember me
+          </label>
+ 
+          <a class="forgot">Forgot Password</a>
+        </div>
+ 
+        <button class="login-btn" type="submit" [disabled]="!loginForm.valid">
+          LOGIN
+        </button>
+ 
+        <p class="signup">
+          Don't have an account yet?
+          <a>Create an account</a>
+        </p>
+ 
+      </form>
+ 
+    </div>
+  </div>
+ 
+</div> 
+ 
+ -->
+
+
+
+ <div class="login-wrapper">
+
+  <div class="login-card">
+        <!-- USER ICON -->
+    <div class="avatar">
+      <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" />
+    </div>
+
+    <!-- <div class="profile-circle">
+      <i class="fas fa-user"></i>
+    </div> -->
+
+    <h2 class="title">Welcome to the Customer Portal</h2>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+
+      <div class="input-box">
+        <i class="fas fa-user input-icon"></i>
+        <input type="text" placeholder="Email ID / User ID" [(ngModel)]="userId" name="userid" required />
+      </div>
+
+      <div class="input-box">
+        <i class="fas fa-lock input-icon"></i>
+        <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
+      </div>
+
+      <button class="login-btn" type="submit" [disabled]="!loginForm.valid">LOGIN</button>
+
+    </form>
+  </div>
+</div>

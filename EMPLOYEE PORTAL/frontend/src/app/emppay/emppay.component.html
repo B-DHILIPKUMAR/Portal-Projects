@@ -1,0 +1,101 @@
+<div class="pay-wrapper">
+  <button class="back-btn" (click)="goBack()">← Back</button>
+
+
+  <!-- Title Row -->
+  <div class="header-section">
+    <h1>Salary Breakdown</h1>
+    <button class="pdf-btn" (click)="downloadPDF()">Download Payslip PDF</button>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading-box">
+    Loading salary details...
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="!loading && errorMessage" class="error-box">
+    {{ errorMessage }}
+  </div>
+
+  <!-- No Data -->
+  <div *ngIf="!loading && salaryList.length === 0" class="no-data">
+    No salary records found.
+  </div>
+
+  <!-- MAIN SUMMARY BOX -->
+  <div *ngIf="!loading && salaryList.length > 0" class="summary-card">
+
+    <div class="row">
+      <div class="label">Employee ID :</div>
+      <div class="value-box">{{ salaryList[0].EMP_ID }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Name :</div>
+      <div class="value-box">{{ salaryList[0].NAME }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Company Code :</div>
+      <div class="value-box">{{ salaryList[0].COMPANY_CODE }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Cost Center :</div>
+      <div class="value-box">{{ salaryList[0].COST_CENTER }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Wage Type :</div>
+      <div class="value-box">{{ salaryList[0].WAGE_TYPE }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Amount :</div>
+      <div class="value-box">₹ {{ salaryList[0].AMOUNT }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Currency :</div>
+      <div class="value-box">{{ salaryList[0].CURRENCY_KEY }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Working Hours :</div>
+      <div class="value-box">{{ salaryList[0].WORKING_HOURS }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Nationality :</div>
+      <div class="value-box">{{ salaryList[0].NATIONALITY }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Gender :</div>
+      <div class="value-box">{{ salaryList[0].GENDER }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Date of Birth :</div>
+      <div class="value-box">{{ salaryList[0].DOB }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Position (STELL) :</div>
+      <div class="value-box">{{ salaryList[0].STELL }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">PS Group :</div>
+      <div class="value-box">{{ salaryList[0].PS_GROUP }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">PS Level :</div>
+      <div class="value-box">{{ salaryList[0].PS_LEVEL }}</div>
+    </div>
+
+  </div>
+
+</div>
