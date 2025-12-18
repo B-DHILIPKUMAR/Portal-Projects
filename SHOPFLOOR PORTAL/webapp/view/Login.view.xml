@@ -1,0 +1,17 @@
+<mvc:View controllerName="Portal_projectShopFloor.controller.Login" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" displayBlock="true">
+    <Page title="Shop Floor Portal - Login">
+        <content>
+            <FlexBox alignItems="Center" justifyContent="Center" height="100%" direction="Column">
+                <Title text="Please Login" titleStyle="H2" class="sapUiMediumMarginBottom"/>
+                <VBox width="300px">
+                    <Label text="User ID"/>
+                    <Input id="userIdInput" placeholder="Enter User ID"/>
+                    <Label text="Password" class="sapUiSmallMarginTop"/>
+                    <Input id="passwordInput" type="Password" placeholder="Enter Password"/>
+                    <Button text="Login" press="onLogin" type="Emphasized" class="sapUiMediumMarginTop" width="100%"/>
+                </VBox>
+            </FlexBox>
+        </content>
+    </Page>
+</mvc:View>

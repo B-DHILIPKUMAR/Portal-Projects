@@ -1,0 +1,29 @@
+<mvc:View controllerName="Portal_projectShopFloor.controller.Dashboard" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" displayBlock="true">
+    <Page title="Shop Floor Dashboard" showNavButton="false">
+        <content>
+            <TileContainer>
+                <StandardTile
+                    title="Planned Orders"
+                    info="Month Wise"
+                    icon="sap-icon://calendar"
+                    press="onPressPlannedMonth"/>
+                <StandardTile
+                    title="Production Orders"
+                    info="Month Wise"
+                    icon="sap-icon://factory"
+                    press="onPressProductionMonth"/>
+                <StandardTile
+                    title="Planned Orders"
+                    info="Year Wise"
+                    icon="sap-icon://date-time"
+                    press="onPressPlannedYear"/>
+                <StandardTile
+                    title="Production Orders"
+                    info="Year Wise"
+                    icon="sap-icon://machine"
+                    press="onPressProductionYear"/>
+            </TileContainer>
+        </content>
+    </Page>
+</mvc:View>

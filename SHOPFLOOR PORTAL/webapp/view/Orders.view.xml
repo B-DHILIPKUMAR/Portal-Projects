@@ -1,0 +1,82 @@
+<mvc:View controllerName="Portal_projectShopFloor.controller.Orders" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" xmlns:core="sap.ui.core" displayBlock="true">
+    <Page id="ordersPage" title="Orders" showNavButton="true" navButtonPress="onNavBack">
+        <headerContent>
+            <Button icon="sap-icon://log" press="onLogout" tooltip="Logout"/>
+        </headerContent>
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <HBox alignItems="Center" class="sapUiSmallMarginBottom">
+                    <Label id="periodLabel" text="Select Period: " class="sapUiSmallMarginEnd"/>
+                    
+                    <!-- Month Select -->
+                    <Select id="monthSelect" width="200px" visible="false" forceSelection="false" change="onGo">
+                        <core:Item key="0" text="January"/>
+                        <core:Item key="1" text="February"/>
+                        <core:Item key="2" text="March"/>
+                        <core:Item key="3" text="April"/>
+                        <core:Item key="4" text="May"/>
+                        <core:Item key="5" text="June"/>
+                        <core:Item key="6" text="July"/>
+                        <core:Item key="7" text="August"/>
+                        <core:Item key="8" text="September"/>
+                        <core:Item key="9" text="October"/>
+                        <core:Item key="10" text="November"/>
+                        <core:Item key="11" text="December"/>
+                    </Select>
+
+                    <!-- Year Select -->
+                    <Select id="yearSelect" width="200px" visible="false" forceSelection="false" change="onGo">
+                        <!-- Items populated in Controller -->
+                    </Select>
+
+
+                </HBox>
+
+                <Table id="plannedTable" visible="false" items="{viewData>/items}">
+                    <columns>
+                        <Column><Text text="Order Number"/></Column>
+                        <Column><Text text="Material"/></Column>
+                        <Column><Text text="Start Date"/></Column>
+                        <Column><Text text="End Date"/></Column>
+                        <Column><Text text="Planned Qty"/></Column>
+                        <Column><Text text="Creator"/></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{viewData>OrderNumber}"/>
+                                <Text text="{viewData>MaterialNumber}"/>
+                                <Text text="{path: 'viewData>StartDate', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd-MM-yyyy'}}"/>
+                                <Text text="{path: 'viewData>EndDate', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd-MM-yyyy'}}"/>
+                                <Text text="{viewData>PlannedQuantity} {viewData>Unit}"/>
+                                <Text text="{viewData>Creator}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+
+                <Table id="productionTable" visible="false" items="{viewData>/items}">
+                     <columns>
+                        <Column><Text text="Order ID"/></Column>
+                        <Column><Text text="Description"/></Column>
+                        <Column><Text text="Created By"/></Column>
+                        <Column><Text text="Created Date"/></Column>
+                        <Column><Text text="Plant"/></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{viewData>Aufnr}"/>
+                                <Text text="{viewData>Ktext}"/>
+                                <Text text="{viewData>Ernam}"/>
+                                <Text text="{path: 'viewData>Erdat', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd-MM-yyyy'}}"/>
+                                <Text text="{viewData>Werks}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

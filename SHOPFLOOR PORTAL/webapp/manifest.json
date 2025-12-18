@@ -1,0 +1,136 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "Portal_projectShopFloor",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZMM_SHOPFLOOR_877_ODATA_SRV_01": {
+				"uri": "/sap/opu/odata/SAP/ZMM_SHOPFLOOR_877_ODATA_SRV_01/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "Portal_projectShopFloor.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "Portal_projectShopFloor.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "ZMM_SHOPFLOOR_877_ODATA_SRV_01",
+				"preload": true,
+				"settings": {
+					"defaultBindingMode": "TwoWay",
+					"useBatch": false,
+					"tokenHandling": false
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "Portal_projectShopFloor.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "login",
+					"target": "login"
+				},
+				{
+					"pattern": "dashboard",
+					"name": "dashboard",
+					"target": "dashboard"
+				},
+				{
+					"pattern": "orders/{type}/{period}",
+					"name": "orders",
+					"target": "orders"
+				}
+			],
+			"targets": {
+				"login": {
+					"viewName": "Login",
+					"viewLevel": 1
+				},
+				"dashboard": {
+					"viewName": "Dashboard",
+					"viewLevel": 2
+				},
+				"orders": {
+					"viewName": "Orders",
+					"viewLevel": 3
+				}
+			}
+		}
+	}
+}
+
